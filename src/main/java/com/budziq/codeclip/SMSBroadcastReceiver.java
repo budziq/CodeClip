@@ -31,7 +31,8 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
         }
 
         Intent intent = new Intent("com.budziq.codeclip.noticlicked");
-        PendingIntent pIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
+        intent.putExtra("test_key", "test values 1234");
+        PendingIntent pIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(context)
